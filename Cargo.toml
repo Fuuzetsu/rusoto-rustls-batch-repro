@@ -1,0 +1,21 @@
+[package]
+name = "rusoto-rustls-batch-repro"
+version = "0.1.0"
+authors = ["Mateusz Kowalczyk <fuuzetsu@fuuzetsu.co.uk>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+env_logger = "0.8"
+rusoto_core = { version = "0.46", default-features = false }
+rusoto_batch = { version = "0.46", default-features = false }
+rusoto_credential = "0.46"
+rusoto_sts = { version = "0.46", default-features = false }
+structopt = "0.3"
+tokio = "1.1"
+
+
+[features]
+default = ["rusoto_core/default", "rusoto_batch/default", "rusoto_sts/default"]
+rustls = ["rusoto_core/rustls", "rusoto_batch/rustls", "rusoto_sts/rustls"]
